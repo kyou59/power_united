@@ -26,4 +26,4 @@
 
 ## GUI紙芝居
 ### 削除画面
-![sakujyo](eturan.png)
+![eturan](eturan.png)
