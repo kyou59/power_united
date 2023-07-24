@@ -7,12 +7,12 @@
 <body>
     <h1>センサ一覧</h1>
     <ul>
-        <li th:each="t: ${sensorList}">
+        <li th:each="t: ${LsmsList}">
             [[${t.comment}]] -- [[${t.name}]] on [[${t.createdAt}]]
         </li>
     </ul>
     <h2>投稿する</h2>
-    <form th:action="@{/read}" th:object="${sensorForm}" method="post">
+    <form th:action="@{/read}" th:object="${LsmsForm}" method="post">
         <label for="name">お名前：</label>
         <input type="text" th:field="*{name}" size="8" value="名無しさん" />
         <label for="comment">つぶやき：</label>
@@ -20,7 +20,7 @@
         <input type="submit" value="つぶやく" />
     </form>
     <h2>検索する</h2>
-    <form action="/sensor/search" method="get">
+    <form action="/Lsms/search" method="get">
         <label for="keyword">キーワード</label>
         <input type="text" required name="keyword" id="keyword">
         <input type="submit" value="検索する">
