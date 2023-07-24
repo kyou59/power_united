@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import jp.kobe_u.cs.daikibo.LSMS.entity.Lsms;
+import jp.kobe_u.cs.daikibo.LSMS.service.LsmsService;
+
 @Controller  
 public class LsmsController {  
     @Autowired
