@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>センサ一覧</title>
+    <link rel="stylesheet" th:href="@{css/sanitize.css}">
+    <link rel="stylesheet" th:href="@{css/style.css}">
 </head>
 <body>
     <h1>センサ一覧</h1>
     <ul>
         <li th:each="t: ${LsmsList}">
             <a th:href="@{/sensor/{id}(id=${t.id})}">[[${t.sensorName}]]</a>
-            <p>投稿者: <span th:text="${t.username}"></span></p> <!-- ユーザ名を表示 -->
+            <p>ユーザ名: <span th:text="${t.username}"></span></p> <!-- ユーザ名を表示 -->
         </li>
     </ul>
     <h2>検索する</h2>
