@@ -14,15 +14,15 @@
     <h2>情報を更新する</h2>
     <form th:action="@{'/sensor/' + ${Lsms.id}}" th:object="${LsmsForm}" method="post">
         <label for="sensorName">センサ名：</label>
-        <input type="text" required th:field="*{sensorName}" />
+        <input type="text" required name="sensorName" th:value="${Lsms.sensorName}"/>
         <label for="location">場所：</label>
-        <input type="text" required th:field="*{location}" />
+        <input type="text" required name="location" th:value="${Lsms.location}" />
         <label for="stock">在庫：</label>
-        <input type="text" required th:field="*{stock}" />
+        <input type="text" required name="field" th:value="${Lsms.stock}" />
         <label for="purpose">使用目的：</label>
-        <input type="text" required th:field="*{purpose}" />
+        <input type="text" required name="purpose" th:value="${Lsms.purpose}" />
         <label for="username">ユーザー名：</label>
-        <input type="text" required th:field="*{username}" />
+        <input type="text" required name="username" th:value="${Lsms.username}" />
         <input type="submit" value="更新" />
     </form>
     <h2>センサを削除する</h2>
