@@ -8,7 +8,7 @@
     <h1>センサ一覧</h1>
     <ul>
         <li th:each="t: ${LsmsList}">
-            センサ名： [[${t.sensorName}]], 場所： [[${t.location}]], 在庫： [[${t.stock}]], 使用目的： [[${t.purpose}]] on [[${t.createdAt}]]
+            <a th:href="@{/sensor/{id}(id=${t.id})}">[[${t.sensorName}]]</a>
         </li>
     </ul>
     <h2>新規登録する</h2>

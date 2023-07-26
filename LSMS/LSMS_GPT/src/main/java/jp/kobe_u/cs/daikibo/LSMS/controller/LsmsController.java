@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -41,14 +42,19 @@ public class LsmsController {
         ts.postLsms(t);
         return "redirect:/read";
     }
-    
+
     @GetMapping("/search")
     String searchLsms(@RequestParam String keyword, Model model) {
         List<Lsms> list = ts.searchLsms(keyword);
         model.addAttribute("LsmsList", list);
-        model.addAttribute("LsmsForm", new LsmsForm()); //ここを追加
+        model.addAttribute("LsmsForm", new LsmsForm());
         return "Lsms_list";
     }
-    
-    
+
+    @GetMapping("/sensor/{id}")
+    String showSensorDetails(@PathVariable Long id, Model model) {
+        Lsms sensor = ts.getLsms(id);
+        model.addAttribute("sensor", sensor);
+        return "sensor_details";
+    }
 }
