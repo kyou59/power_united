@@ -10,7 +10,7 @@
     <p>場所　　: <span th:text="${Lsms.location}"></span></p>
     <p>在庫　　: <span th:text="${Lsms.stock}"></span></p>
     <p>使用目的: <span th:text="${Lsms.purpose}"></span></p>
-    <p>投稿者　: <span th:text="${Lsms.username}"></span></p>
+    <p>ユーザ名: <span th:text="${Lsms.username}"></span></p>
     <h2>情報を更新する</h2>
     <form th:action="@{'/sensor/' + ${Lsms.id}}" th:object="${LsmsForm}" method="post">
         <label for="sensorName">センサ名：</label>
