@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>検索結果</title>
+    <link rel="stylesheet" th:href="@{css/sanitize.css}">
+    <link rel="stylesheet" th:href="@{css/style.css}">
+</head>
+<body>
+    <h1>検索結果</h1>
+    <div th:each="lsms : ${LsmsList}">
+        <p>センサ名: <span th:text="${lsms.sensorName}"></span></p>
+        <p>場所　　: <span th:text="${lsms.location}"></span></p>
+        <p>在庫　　: <span th:text="${lsms.stock}"></span></p>
+        <p>使用目的: <span th:text="${lsms.purpose}"></span></p>
+        <p>投稿者　: <span th:text="${lsms.username}"></span></p>
+        <a th:href="@{'/sensor/' + ${lsms.id}}">詳細を変更する</a>
+    </div>
+    <a href="/">トップページへ</a>
+</body>
+</html>

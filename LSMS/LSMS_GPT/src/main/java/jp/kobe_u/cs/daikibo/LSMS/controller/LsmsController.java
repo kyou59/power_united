@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import jp.kobe_u.cs.daikibo.LSMS.entity.Lsms;
 import jp.kobe_u.cs.daikibo.LSMS.service.LsmsService;
@@ -81,5 +82,14 @@ public class LsmsController {
     String deleteLsms(@PathVariable Long id, Model model) {
         ts.deleteLsms(id);
         return "redirect:/read";
+    }
+
+    //センサを検索する
+    @GetMapping("/search")
+    String searchLsms(@RequestParam String keyword, Model model) {
+        List<Lsms> list = ts.searchLsms(keyword);
+        model.addAttribute("LsmsList", list);
+        model.addAttribute("LsmsForm", new LsmsForm()); 
+        return "search_result";
     }
 }

@@ -60,4 +60,8 @@ public class LsmsService {
     public void deleteLsms(Long id) {
         repo.deleteById(id);
     }
+
+    public List<Lsms> searchLsms(String keyword) {
+        return repo.findBySensorNameContainsOrLocationContainsOrPurposeContains(keyword, keyword, keyword);
+    }
 }
