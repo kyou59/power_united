@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>センサ一覧</title>
+</head>
+<body>
+    <h1>センサ一覧</h1>
+    <ul>
+        <li th:each="t: ${LsmsList}">
+            センサ名： [[${t.sensorName}]], 場所： [[${t.location}]], 在庫： [[${t.stock}]], 使用目的： [[${t.purpose}]] on [[${t.createdAt}]]
+        </li>
+    </ul>
+    <h2>新規登録する</h2>
+    <form th:action="@{/read}" th:object="${LsmsForm}" method="post">
+        <label for="sensorName">センサ名：</label>
+        <input type="text" th:field="*{sensorName}" required/>
+        <label for="location">場所：</label>
+        <input type="text" th:field="*{location}" required/>
+        <label for="stock">在庫：</label>
+        <input type="number" th:field="*{stock}" required/>
+        <label for="purpose">使用目的：</label>
+        <input type="text" th:field="*{purpose}" required/>
+        <input type="submit" value="登録" />
+    </form>
+    <h2>検索する</h2>
+    <form th:action="@{/search}" method="get">
+        <label for="keyword">キーワード</label>
+        <input type="text" required name="keyword" id="keyword">
+        <input type="submit" value="検索する">
+    </form>
+    <h2>タイトルへ</h2>
+    <a th:href="@{/}">戻る</a>
+</body>
+</html>
