@@ -9,27 +9,22 @@
     <ul>
         <li th:each="t: ${LsmsList}">
             <a th:href="@{/sensor/{id}(id=${t.id})}">[[${t.sensorName}]]</a>
+            <p>投稿者: <span th:text="${t.username}"></span></p> <!-- ユーザ名を表示 -->
         </li>
     </ul>
     <h2>新規登録する</h2>
     <form th:action="@{/read}" th:object="${LsmsForm}" method="post">
         <label for="sensorName">センサ名：</label>
-        <input type="text" th:field="*{sensorName}" required/>
+        <input type="text" required th:field="*{sensorName}" />
         <label for="location">場所：</label>
-        <input type="text" th:field="*{location}" required/>
+        <input type="text" required th:field="*{location}" />
         <label for="stock">在庫：</label>
-        <input type="number" th:field="*{stock}" required/>
+        <input type="text" required th:field="*{stock}" />
         <label for="purpose">使用目的：</label>
-        <input type="text" th:field="*{purpose}" required/>
+        <input type="text" required th:field="*{purpose}" />
+        <label for="username">ユーザー名：</label> <!-- ユーザー名入力フィールドを追加 -->
+        <input type="text" required th:field="*{username}" />
         <input type="submit" value="登録" />
     </form>
-    <h2>検索する</h2>
-    <form th:action="@{/search}" method="get">
-        <label for="keyword">キーワード</label>
-        <input type="text" required name="keyword" id="keyword">
-        <input type="submit" value="検索する">
-    </form>
-    <h2>タイトルへ</h2>
-    <a th:href="@{/}">戻る</a>
 </body>
 </html>

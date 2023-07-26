@@ -4,8 +4,9 @@ import lombok.Data;
 
 @Data
 public class LsmsForm {
-    String sensorName; // センサ名前
-    String location; // センサの場所
-    int stock; // 在庫数
-    String purpose; // 使用目的
+    String sensorName; //センサ名
+    String location; //場所
+    String stock; //在庫数
+    String purpose; //使用目的
+    String username; //ユーザ名（追加）
 }

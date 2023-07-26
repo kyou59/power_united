@@ -14,11 +14,12 @@ import lombok.Data;
 public class Lsms {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id; // センサエンティティの識別子
-    String sensorName; // センサ名前
-    String location; // センサの場所
-    int stock; // 在庫数
-    String purpose; // 使用目的
+    Long id; //センサエンティティの識別子
+    String sensorName;    //センサ名前
+    String location;    //使用場所
+    String stock; //在庫数
+    String purpose; //使用用途
+    String username; //ユーザ名（追加）
     @Temporal(TemporalType.TIMESTAMP)
-    Date createdAt; // 作成日時
+    Date createdAt; //作成日時
 }
