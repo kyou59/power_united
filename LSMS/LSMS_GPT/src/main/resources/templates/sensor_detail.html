@@ -3,26 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>センサ詳細</title>
+    <link rel="stylesheet" th:href="@{../css/sanitize.css}">
+    <link rel="stylesheet" th:href="@{../css/style.css}">
 </head>
 <body>
     <h1>センサ詳細</h1>
     <p>センサ名: <span th:text="${Lsms.sensorName}"></span></p>
-    <p>場所: <span th:text="${Lsms.location}"></span></p>
-    <p>在庫: <span th:text="${Lsms.stock}"></span></p>
+    <p>場所　　: <span th:text="${Lsms.location}"></span></p>
+    <p>在庫　　: <span th:text="${Lsms.stock}"></span></p>
     <p>使用目的: <span th:text="${Lsms.purpose}"></span></p>
-    <p>投稿者: <span th:text="${Lsms.username}"></span></p>
+    <p>ユーザ名: <span th:text="${Lsms.username}"></span></p>
     <h2>情報を更新する</h2>
     <form th:action="@{'/sensor/' + ${Lsms.id}}" th:object="${LsmsForm}" method="post">
         <label for="sensorName">センサ名：</label>
-        <input type="text" required name="sensorName" th:value="${Lsms.sensorName}"/>
-        <label for="location">場所：</label>
-        <input type="text" required name="location" th:value="${Lsms.location}" />
-        <label for="stock">在庫：</label>
-        <input type="text" required name="field" th:value="${Lsms.stock}" />
+        <input type="text" required name="sensorName" th:value="${Lsms.sensorName}"/><br>
+        <label for="location">場所　　：</label>
+        <input type="text" required name="location" th:value="${Lsms.location}" /><br>
+        <label for="stock">在庫　　：</label>
+        <input type="text" required name="stock" th:value="${Lsms.stock}" /><br>
         <label for="purpose">使用目的：</label>
-        <input type="text" required name="purpose" th:value="${Lsms.purpose}" />
-        <label for="username">ユーザー名：</label>
-        <input type="text" required name="username" th:value="${Lsms.username}" />
+        <textarea rows="10" cols="40" required name="purpose">[[${Lsms.purpose}]]</textarea><br>
+        <label for="username">ユーザ名：</label>
+        <input type="text" required name="username" th:value="${Lsms.username}" /><br>
         <input type="submit" value="更新" />
     </form>
     <h2>センサを削除する</h2>
