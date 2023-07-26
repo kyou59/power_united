@@ -26,6 +26,10 @@ public class LsmsService {
         return list;
     }
 
+    public Lsms getLsms(Long id) {
+        return repo.findById(id).orElse(null);
+    }
+
     public List<Lsms> searchLsms(String keyword) {
         return repo.findBySensorNameContainsOrLocationContainsOrPurposeContains(keyword, keyword, keyword);
     }
