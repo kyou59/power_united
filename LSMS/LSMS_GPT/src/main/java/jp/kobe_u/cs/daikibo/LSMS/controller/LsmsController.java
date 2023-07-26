@@ -34,13 +34,16 @@ public class LsmsController {
 
     @PostMapping("/read")
     String postLsms(@ModelAttribute("LsmsForm") LsmsForm form, Model model) {
+        //フォームからエンティティに移し替え
         Lsms t = new Lsms();
         t.setSensorName(form.getSensorName());
         t.setLocation(form.getLocation());
         t.setStock(form.getStock());
         t.setPurpose(form.getPurpose());
+        t.setUsername(form.getUsername()); //ユーザ名をエンティティに設定
+        //サービスに投稿処理を依頼
         ts.postLsms(t);
-        return "redirect:/read";
+        return "redirect:/read"; //メイン画面に転送
     }
 
     @GetMapping("/search")
@@ -57,4 +60,5 @@ public class LsmsController {
         model.addAttribute("sensor", sensor);
         return "sensor_details";
     }
+
 }
