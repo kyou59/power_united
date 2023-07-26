@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @charset "utf-8";
 
 body{
@@ -11,4 +12,19 @@ body{
 }
 p{
     color: black;
+=======
+@charset "utf-8";
+
+body{
+    font-family: 'Noto Sans JP', sans-serif
+}
+body{
+    background: radial-gradient(circle 300px at center,
+    #c9faf6 0%,
+    #81FFEF 20%,
+    #9ce8f1 100%);
+}
+p{
+    color: black;
+>>>>>>> 432f569a9087b0f4276930f54595ae54bf66e1e6
 }
