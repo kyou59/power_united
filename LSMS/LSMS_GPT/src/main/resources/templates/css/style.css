@@ -1,0 +1,11 @@
+@charset "utf-8";
+
+body{
+    font-family: 'Noto Sans JP', sans-serif
+}
+body{
+    background-color: aliceblue;
+}
+p{
+    color: black;
+}
