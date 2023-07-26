@@ -12,6 +12,12 @@
             <p>投稿者: <span th:text="${t.username}"></span></p> <!-- ユーザ名を表示 -->
         </li>
     </ul>
+    <h2>検索する</h2>
+    <form th:action="@{/search}" method="get">
+        <label for="keyword">キーワード</label>
+        <input type="text" required name="keyword" id="keyword">
+        <input type="submit" value="検索する">
+    </form>
     <h2>新規登録する</h2>
     <form th:action="@{/read}" th:object="${LsmsForm}" method="post">
         <label for="sensorName">センサ名：</label>
