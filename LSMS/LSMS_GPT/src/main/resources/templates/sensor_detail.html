@@ -22,7 +22,7 @@
         <label for="stock">在庫　　：</label>
         <input type="text" required name="stock" th:value="${Lsms.stock}" /><br>
         <label for="purpose">使用目的：</label>
-        <input type="text" required name="purpose" th:value="${Lsms.purpose}" /><br>
+        <textarea rows="10" cols="40" required name="purpose">[[${Lsms.purpose}]]</textarea><br>
         <label for="username">ユーザ名：</label>
         <input type="text" required name="username" th:value="${Lsms.username}" /><br>
         <input type="submit" value="更新" />
