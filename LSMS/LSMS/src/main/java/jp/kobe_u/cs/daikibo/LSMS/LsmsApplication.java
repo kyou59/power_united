@@ -11,3 +11,5 @@ public class LsmsApplication {
 	}
 
 }
+
+//ページ表示→http://localhost:2289/
