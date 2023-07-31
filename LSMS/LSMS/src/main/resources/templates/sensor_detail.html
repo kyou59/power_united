@@ -12,16 +12,14 @@
     <p>場所　　: <span th:text="${Lsms.location}"></span></p>
     <p>在庫　　: <span th:text="${Lsms.stock}"></span></p>
     <p>使用目的: <span th:text="${Lsms.purpose}"></span></p>
-    <p>使用目的の更新履歴:</p>
-    <ul>
-        <!-- 使用目的の更新履歴をリストとして表示 -->
-        <li th:each="purpose : ${purposeHistory}" th:text="${purpose}"></li>
-    </ul>
-    <p>ユーザ名: <span th:text="${Lsms.username}"></span></p>
-    <p>ユーザ名の履歴:</p> <!-- ユーザ名の履歴リストのタイトル（追加） -->
-    <ul th:each="username : ${usernameHistory}"> <!-- ユーザ名の履歴リストを表示（追加） -->
-        <li th:text="${username}"></li>
-    </ul>
+    <p>ユーザ名: <span th:text="${Lsms.username}"></span></p><br>
+    
+    <h2>使用目的の更新履歴--ユーザ名</h2> <!-- ユーザ名の履歴リストのタイトル（追加） -->
+
+    <div th:each="purpose, stat : ${purposeHistory}">
+        <p th:text="${purpose} + ' -- ' + ${usernameHistory[stat.index]}"></p>
+    </div><br>
+
     <h2>情報を更新する</h2>
     <form th:action="@{'/sensor/' + ${Lsms.id}}" th:object="${LsmsForm}" method="post">
         <label for="sensorName">センサ名：</label>
@@ -35,11 +33,11 @@
         <label for="username">ユーザ名：</label>
         <input type="text" required name="username" th:value="${Lsms.username}" /><br>
         <input type="submit" value="更新" />
-    </form>
+    </form><br>
     <h2>センサを削除する</h2>
     <form th:action="@{'/sensor/' + ${Lsms.id} + '/delete'}" method="post">
         <input type="submit" value="削除" />
-    </form>
+    </form><br>
     <h2>センサ一覧へ</h2>
     <a th:href="@{/read}">戻る</a>
 </body>
