@@ -28,6 +28,9 @@ public class Lsms {
     @ElementCollection
     @Getter @Setter
     List<String> usernameHistory = new ArrayList<>(); // ユーザ名の履歴リスト（追加）
+    @ElementCollection
+    @Getter @Setter   
+    List<String> purposeHistory = new ArrayList<>(); // 使用目的の履歴リスト（追加）    
     @Temporal(TemporalType.TIMESTAMP)
     Date createdAt; //作成日時
 }

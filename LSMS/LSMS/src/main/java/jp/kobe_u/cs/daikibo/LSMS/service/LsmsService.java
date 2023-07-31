@@ -40,16 +40,19 @@ public class LsmsService {
         return repo.findById(id);
     }
 
-   // センサ情報の更新
-   public Lsms updateLsms(Long id, Lsms newSensorInfo) {
+// センサ情報の更新
+public Lsms updateLsms(Long id, Lsms newSensorInfo) {
     Optional<Lsms> optional = repo.findById(id);
     if(optional.isPresent()){
         Lsms t = optional.get();
-        t.getUsernameHistory().add(t.getUsername()); // 古いユーザ名を履歴リストに追加
+        // 使用目的の更新履歴に現在の使用目的を追加
+        t.getPurposeHistory().add(t.getPurpose());
         t.setSensorName(newSensorInfo.getSensorName());
         t.setLocation(newSensorInfo.getLocation());
         t.setStock(newSensorInfo.getStock());
         t.setPurpose(newSensorInfo.getPurpose());
+        // ユーザ名の更新履歴に現在のユーザ名を追加
+        t.getUsernameHistory().add(t.getUsername());
         t.setUsername(newSensorInfo.getUsername());
         return repo.save(t);
     }else{

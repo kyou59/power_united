@@ -58,7 +58,9 @@ public class LsmsController {
             Lsms t = optional.get();
             model.addAttribute("Lsms", t);
             model.addAttribute("LsmsForm", new LsmsForm());
-            model.addAttribute("usernameHistory", t.getUsernameHistory()); // ユーザ名の履歴リストをモデルに追加
+            model.addAttribute("usernameHistory", t.getUsernameHistory());            
+            // 使用目的の更新履歴をモデルに追加            
+            model.addAttribute("purposeHistory", t.getPurposeHistory());
             return "sensor_detail"; 
         }else{
             return "redirect:/read";

@@ -12,6 +12,12 @@
     <p>場所　　: <span th:text="${Lsms.location}"></span></p>
     <p>在庫　　: <span th:text="${Lsms.stock}"></span></p>
     <p>使用目的: <span th:text="${Lsms.purpose}"></span></p>
+    <p>使用目的: <span th:text="${Lsms.purpose}"></span></p>
+    <p>使用目的の更新履歴:</p>
+    <ul>
+        <!-- 使用目的の更新履歴をリストとして表示 -->
+        <li th:each="purpose : ${purposeHistory}" th:text="${purpose}"></li>
+    </ul>
     <p>ユーザ名: <span th:text="${Lsms.username}"></span></p>
     <p>ユーザ名の履歴:</p> <!-- ユーザ名の履歴リストのタイトル（追加） -->
     <ul th:each="username : ${usernameHistory}"> <!-- ユーザ名の履歴リストを表示（追加） -->
