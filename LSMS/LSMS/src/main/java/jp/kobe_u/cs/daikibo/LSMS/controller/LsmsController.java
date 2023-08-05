@@ -1,5 +1,7 @@
 package jp.kobe_u.cs.daikibo.LSMS.controller;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,7 +37,7 @@ public class LsmsController {
         return "Lsms_list"; //リスト画面を返す
     }
 
-    // つぶやきを投稿
+    // 投稿
     @PostMapping("/read")
     String postLsms(@ModelAttribute("LsmsForm") LsmsForm form, Model model) {
         // フォームからエンティティに移し替え
@@ -45,6 +47,8 @@ public class LsmsController {
         t.setStock(form.getStock());
         t.setPurpose(form.getPurpose());
         t.setUsername(form.getUsername());
+        // 投稿日時を設定
+        t.setPostDate(LocalDateTime.now());
         // サービスに投稿処理を依頼
         ts.postLsms(t);
         return "redirect:/read"; //メイン画面に転送
@@ -57,6 +61,11 @@ public class LsmsController {
         if(optional.isPresent()){
             Lsms t = optional.get();
             model.addAttribute("Lsms", t);
+            // 投稿日時をフォーマットしてモデルに追加
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            String formattedPostDate = t.getPostDate().format(formatter);
+            model.addAttribute("formattedPostDate", formattedPostDate);
+
             model.addAttribute("LsmsForm", new LsmsForm());
             model.addAttribute("usernameHistory", t.getUsernameHistory());            
             // 使用目的の更新履歴をモデルに追加            

@@ -1,5 +1,6 @@
 package jp.kobe_u.cs.daikibo.LSMS.entity;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -33,4 +34,12 @@ public class Lsms {
     List<String> purposeHistory = new ArrayList<>(); // 使用目的の履歴リスト（追加）    
     @Temporal(TemporalType.TIMESTAMP)
     Date createdAt; //作成日時
+    private LocalDateTime postDate;
+    public LocalDateTime getPostDate() {
+        return postDate;
+    }
+
+    public void setPostDate(LocalDateTime postDate) {
+        this.postDate = postDate;
+    }
 }
